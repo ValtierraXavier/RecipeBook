@@ -1,0 +1,32 @@
+.drawer{
+    z-index: 1;
+    display: flex;
+    position: absolute;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    background-color: rgba(224, 255, 255, 0.822);
+    width: 25dvw;
+    height: 100dvh;
+    box-sizing: border-box;
+    padding-top: 1dvh;
+    left: -25dvw;
+    transition: .4s ease-in-out;
+}
+
+.drawerItems{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    height: 10%;
+    width: 100%;
+    margin: 1% 0%;
+    padding: 0% 0% 0% 2%;
+    background-color: rgb(193, 252, 252);
+    transition: .1s ease-in-out;
+    box-sizing: border-box;
+}
+
+.drawerItems:hover{
+    background-color: cyan ;
+}

@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react';
+import Drawer from './Components/NavDrawer/Drawer/Drawer.jsx'
+import { SliderContext } from './Context/SliderContext.js';
+import HamburgerButton from './Components/NavDrawer/HamburgerButton/Button.jsx';
 
 function App() {
+  const [open, setOpen] = useState(false)
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SliderContext.Provider value={{open, setOpen}}>
+        {/* <HamburgerButton/> */}
+        <Drawer/>
+      </SliderContext.Provider>
     </div>
   );
 }

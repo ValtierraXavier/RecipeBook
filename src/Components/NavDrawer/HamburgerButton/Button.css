@@ -1,0 +1,52 @@
+#hamButton{
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-flow:column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    height: 4dvh;
+    width: 2dvw;
+    margin: 2%;
+    left:2dvw;
+    transition: .3s ease-in-out .2s;
+    box-sizing: border-box;
+}
+.iconDiv{
+    opacity: 100%;
+    background-color: grey;
+    position: relative;
+    height: 10%;
+    width: 90%;
+    border-radius: 5px;
+    transform: rotate(0deg);
+    top: 0%;
+    transition: .4s ease-in-out .3s;
+    box-sizing: border-box;
+}
+#check{
+    display: none;
+}
+
+#hamButton:hover > .iconDiv{
+    background-color: black;
+    align-items: center;
+}
+#check:checked + #hamButton > #upper{
+    top: 33%;
+    transform: rotate(-45deg)
+
+}
+#check:checked + #hamButton > #middle{
+    width: 0%;
+    opacity: 0%;
+}
+
+#check:checked + #hamButton > #bottom{
+    top: -33%;
+    transform: rotate(45deg)   
+}
+#check:checked + #hamButton{
+    left: -0.3dvw;
+}
