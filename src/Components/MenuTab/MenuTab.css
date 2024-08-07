@@ -1,0 +1,56 @@
+.MenuList{
+    display: flex;
+    position: absolute;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 25dvw;
+    height: 100dvh;
+    left: 35dvw;
+    border: solid black 1px;
+    border-radius: 5px;
+}
+h4{
+    position: relative;
+    top: 4%;
+    margin: 0% 0% 1% 0%;
+}
+.mealCard{
+    display: flex;
+    position: relative;
+    flex-flow: column nowrap;
+    width: 100%;
+    justify-content: space-around;
+    align-content: space-around;
+    box-sizing: border-box;
+    margin: .5% 0%;
+    padding-left: 1%;
+    background-color: rgba(17, 194, 194, 0.6);
+}
+
+.mealCard:hover{
+    background-color: aqua;
+}
+.mealItems.ingredientsList{
+    color: red;
+    display: flex;
+    position: relative;
+    flex-flow: row nowrap;
+    overflow-x: auto;
+    margin: 1% 0%;
+}
+.ingredient{
+    position: relative;
+    margin: 0% 1%;
+}
+.FavoriteButton{
+    display: none;
+}
+#favoriteButton{
+    display: flex;
+    position: absolute;
+    width: 8%;
+    right: 0%;
+    top: 4%;
+}
+

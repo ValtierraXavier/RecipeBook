@@ -1,0 +1,61 @@
+import React from 'react'
+import './MenuTab.css'
+
+export default function MenuTab(){
+    const foods = [
+        {
+            Name: "Jollof",
+            PrepTime: 50,
+            CookTime: 10,
+            Ingredients: ["Tomato", "Rice", "Beef", "Onion"],
+            Instructions: "First make the stew...then boil the rice in it. blah blah...",
+            Description: "A Staple of Ghana and Nigeria; this recipe is passed down from my grandmother and is made in the traditional Ghanian fashion."
+        },
+        {
+            Name: "Rice & Beans",
+            PrepTime: 50,
+            CookTime: 30,
+            Ingredients: ["Tomato Sauce", "Rice", "Beans"],
+            Instructions: "First make the stew...then boil the rice in it but add beans this time blah blah...",
+            Description: "A Staple of PuertoRican households, theres nothing more relaxing than sharing a plate with loved ones. goes great with some chuleta"
+        },
+        {
+            Name: "Bacon, Egg and Cheese",
+            PrepTime: 5,
+            CookTime: 10,
+            Ingredients: ["Tomato", "Rice", "Beef"],
+            Instructions: "Grab some bread, fry an egg in your style...put the egg on the bread add slice of american cheese while the egg is still hot. Enjoy.",
+            Description: "Classic American Breakfast Sandwich...delicious"
+        }
+    ]
+    return(
+        <div className='MenuList' id='menuList'>
+            {foods?.map((el, i)=>{
+                let time = el.CookTime + el.PrepTime,hours = Math.floor(time/60), mins = time % 60, formattedTime = time > 60? `${hours}h ${mins}m` : `${mins == 0 ? `${hours}h` : `${mins}m`}`
+
+               return (
+                <div className='mealCard' id={`meal${i}`}>
+                    <input type='checkbox' className='FavoriteButton' id='favoriteCheck'></input>
+                    <label id='favoriteButton' htmlFor='favoriteCheck'>Fave</label>
+                    <h4 className='mealItems' id={`mealName${i}`}>{`${el.Name}`}</h4>
+                    <div className='mealItems' id={`mealPrepTime${i}`}>{`Prep: ${el.PrepTime}mins`}</div>
+                    <div className='mealItems' id={`mealCookTime${i}`}>{`Cook: ${el.CookTime}mins`}</div>
+                    <div className='mealItems' id={`totalCookTime${i}`}><strong>{`Total:${formattedTime}`}</strong></div>
+                    {/* <div className='mealItems' id={`totalCookTime${i}`}><strong>{`Total: ${el.PrepTime + el.CookTime}mins`}</strong></div> */}
+                    <div className='mealItems ingredientsList' id={`ingredientsList${i}`}>Ingredients:
+                    {
+                        el.Ingredients?.map((el, i)=>{
+                            return(
+                                <div className='ingredient' id={`ingredient${i}`}>{`${i + 1}: ${el}`}
+                                </div>
+                            )
+                        })
+                    }
+                    </div>
+                </div>
+               )
+            })}
+
+        </div>
+    )
+}

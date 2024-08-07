@@ -1,6 +1,6 @@
 import './Button.css'
-import React, {useState, useEffect, useContext} from 'react'
-import { SliderContext } from '../../../Context/SliderContext.js'
+import React, {useEffect, useContext} from 'react'
+import { SliderContext } from '../../../Context/Contexts.js'
 
 export default function HamburgerButton(){
     const {open,setOpen} = useContext(SliderContext)
