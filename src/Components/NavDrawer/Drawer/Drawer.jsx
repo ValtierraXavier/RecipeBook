@@ -18,7 +18,7 @@ export default function Drawer() {
     useEffect(()=>{
         slide()
     })
-  
+  //add close on click outide element functionality.
   return (
     <div className='drawer' id='drawer'>
         <HamburgerButton/>
