@@ -15,7 +15,6 @@ export default function HamburgerButton(){
                 <div className='iconDiv' id = 'middle'></div>
                 <div className='iconDiv' id = 'bottom'></div>
             </label>
-            {/* <p id = 'thing'>{open ? "opened" : "closed" }</p> */}
         </div>
     )
 }
