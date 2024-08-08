@@ -17,7 +17,7 @@
     height: 100%;
     width: 30%;
 }
-#detailsPage{
+#detailsContainer{
     display: flex;
     position: relative;
     flex-flow: column nowrap;
@@ -28,16 +28,51 @@
     display: flex;
     position: relative;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     height: 5%
 }
-.Tab{
+.tab{
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
-    width: 33%;
     background-color: aqua;
+    width: 33%;
+    transition: .2s ease;
+}
+.tab:hover{
+    color: rgb(103, 103, 103);
+}
+.page{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    position: relative;
+    height: 95%;
+    width: 100%;
+    border: solid black 1px;
+    box-sizing: border-box;
+    margin: 0%;
+    background-color: white;
+}
+#MDIngredientsList{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    background-color: white;
+    width: 100%
 
+}
+
+.ingredient{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+.ingredientDetails{
+    position: relative;
+    margin: 2px;
 }
