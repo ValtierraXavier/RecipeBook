@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
+import { MenuContext } from '../../Context/Contexts.js'
 import './MenuTab.css'
 
 export default function MenuTab(){
@@ -28,12 +29,20 @@ export default function MenuTab(){
             Description: "Classic American Breakfast Sandwich...delicious"
         }
     ]
+    const {menuOpen} = useContext(MenuContext)
+    const menuSlider = document.getElementById('menuList')
+
+    const menuSlide = () => {
+        if(menuSlider){
+            menuSlider.style.left = menuOpen ? "0dvw" : "-25dvw"
+        }
+    }
+    useEffect(()=>{menuSlide()})
     return(
         <div className='MenuList' id='menuList'>
             {foods?.map((el, i)=>{
-                let time = el.CookTime + el.PrepTime,hours = Math.floor(time/60), mins = time % 60, formattedTime = time > 60? `${hours}h ${mins}m` : `${mins == 0 ? `${hours}h` : `${mins}m`}`
-
-               return (
+                let time = el.CookTime + el.PrepTime,hours = Math.floor(time/60), mins = time % 60, formattedTime = time > 60? `${hours}h ${mins}m` : `${mins === 0 ? `${hours}h` : `${mins}m`}`
+                return (
                 <div className='mealCard' id={`meal${i}`}>
                     <input type='checkbox' className='FavoriteButton' id='favoriteCheck'></input>
                     <label id='favoriteButton' htmlFor='favoriteCheck'>Fave</label>
@@ -41,13 +50,11 @@ export default function MenuTab(){
                     <div className='mealItems' id={`mealPrepTime${i}`}>{`Prep: ${el.PrepTime}mins`}</div>
                     <div className='mealItems' id={`mealCookTime${i}`}>{`Cook: ${el.CookTime}mins`}</div>
                     <div className='mealItems' id={`totalCookTime${i}`}><strong>{`Total:${formattedTime}`}</strong></div>
-                    {/* <div className='mealItems' id={`totalCookTime${i}`}><strong>{`Total: ${el.PrepTime + el.CookTime}mins`}</strong></div> */}
                     <div className='mealItems ingredientsList' id={`ingredientsList${i}`}>Ingredients:
                     {
                         el.Ingredients?.map((el, i)=>{
                             return(
-                                <div className='ingredient' id={`ingredient${i}`}>{`${i + 1}: ${el}`}
-                                </div>
+                                <p className='ingredient' id={`ingredient${i}`}>{`${i + 1}-${el}`}</p>
                             )
                         })
                     }
@@ -55,7 +62,6 @@ export default function MenuTab(){
                 </div>
                )
             })}
-
         </div>
     )
 }
