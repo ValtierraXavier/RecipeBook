@@ -5,7 +5,7 @@ import { SliderContext, MenuContext } from '../../../Context/Contexts.js'
 export default function HamburgerButton(){
     const {open,setOpen} = useContext(SliderContext)
     const {menuOpen,setMenuOpen} = useContext(MenuContext)
-    let check = document.getElementById('check')
+    const check = document.getElementById('check')
     const whichMenu = () => {
             if(menuOpen){
                 check.checked = true
@@ -18,6 +18,7 @@ export default function HamburgerButton(){
     useEffect(()=>{},[open])
     return(
         <div>
+
             <input type='checkbox' id='check' onClick={()=>{
                 whichMenu()
             }}></input>

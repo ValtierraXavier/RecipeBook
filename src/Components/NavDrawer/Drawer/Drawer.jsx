@@ -2,7 +2,7 @@ import React, {useEffect,useContext} from 'react'
 import './Drawer.css'
 import HamburgerButton from '../HamburgerButton/Button.jsx'
 import { SliderContext, MenuContext } from '../../../Context/Contexts.js'
-import MenuTab from '../../MenuTab/MenuTab.jsx'
+import MenuTab from '../MenuTab/MenuTab.jsx'
 
 export default function Drawer() {
     const {open} = useContext(SliderContext)

@@ -1,24 +1,23 @@
 import './App.css';
 import React, {useState} from 'react';
 import Drawer from './Components/NavDrawer/Drawer/Drawer.jsx'
+import MealDetails from './Components/MealDetails/MealDetails.jsx';
 import { SliderContext, MenuContext } from './Context/Contexts.js';
-// import MenuTab from './Components/MenuTab/MenuTab.jsx';
 
 function App() {
+  //state for nav menu. (boolean)
   const [open, setOpen] = useState(false)
+  //state for menu list. (boolean)
   const [menuOpen, setMenuOpen] = useState(false)
-
-  const closeNav = () => {
-    setOpen(prev => prev = false)
-    setMenuOpen(prev => prev = false)
-  }
+  //closes nav list and all associated sub-menues if there is a click outside their internal area. (right of the right-side of the nav)
   document.addEventListener('click', (e) =>{
     const nav = document.getElementById('drawer').getBoundingClientRect()
-    const check = document.getElementById('check')
-    // console.log(nav.right)
+    const navMenuCheck = document.getElementById('check')
     if(e.clientX > nav.right && nav.right > 0 ){
-      check.checked = false
-      closeNav()
+      //makes sure the nav button doesnt remain checked (checkbox hack; usually triggered onClick)
+      navMenuCheck.checked = false
+      setOpen(prev => prev = false)
+      setMenuOpen(prev => prev = false)
     }
   })
 
@@ -28,7 +27,7 @@ function App() {
       <SliderContext.Provider value={{open, setOpen}}>
         <MenuContext.Provider value = {{menuOpen, setMenuOpen}}>
           <Drawer/>
-        {/* <MenuTab/> */}
+          <MealDetails/>
         </MenuContext.Provider>
       </SliderContext.Provider>
     </div>

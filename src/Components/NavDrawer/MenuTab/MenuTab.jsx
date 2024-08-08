@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react'
-import { MenuContext } from '../../Context/Contexts.js'
+import { MenuContext } from '../../../Context/Contexts.js'
 import './MenuTab.css'
 
 export default function MenuTab(){
