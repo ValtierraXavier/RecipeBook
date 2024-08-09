@@ -49,8 +49,8 @@ export default function MealDetails(){
         'Salt water and bring to a boil (cover it to boil it faster)',
         'Add pasta to boiling water',
         'In a large pot, add the tomatoes and water, cover and bring to a boil',
-        'add pasta to sauce',
-        'enjoy'
+        'Add pasta to sauce',
+        'Enjoy'
     ]
     return(
         <div id='mealDetails'>

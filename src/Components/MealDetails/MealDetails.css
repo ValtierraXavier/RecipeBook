@@ -49,7 +49,7 @@
     flex-flow: column nowrap;
     align-items: center;
     position: relative;
-    height: 95%;
+    height: 77.45%;
     width: 100%;
     border: solid black 1px;
     box-sizing: border-box;
@@ -64,7 +64,6 @@
     width: 100%
 
 }
-
 .ingredient{
     display: flex;
     flex-flow: row nowrap;
