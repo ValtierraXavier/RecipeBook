@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import './MealDetails.css'
 
 export default function MealDetails(){
+    let [activePage, setActivePage] = useState('detailsTab')
     const ingredients = [
         {
             ingredient: "Tomato",
@@ -52,6 +53,32 @@ export default function MealDetails(){
         'Add pasta to sauce',
         'Enjoy'
     ]
+    const fadeIn = async (ms) => {
+        return new Promise(
+            (resolve)=> setTimeout(resolve ,ms) 
+        )
+    }
+    const pageSelect = async (id) => {
+        const tabs = document.getElementsByClassName('tab')
+        const pages = document.getElementsByClassName('page')
+        const tabPageRel = {}
+        for(let i = 0; i < tabs.length; i++){
+            tabPageRel[tabs[i].id] = pages[i].id 
+        }
+        for(let t of tabs) {
+            await fadeIn(100)
+            .then(t.style.opacity = '100%')
+            t.style.backgroundColor = id === t.id ? 'aqua': 'rgb(188, 242, 246)'
+        }
+        for(let p of pages) {
+            p.style.opacity = p.id === tabPageRel[id] ? "100%" : '0%'
+            p.style.zIndex = p.id === tabPageRel[id] ? "2" : '1'
+
+        }
+    }
+    useEffect(()=>{
+        pageSelect(activePage)
+    },[activePage])
     return(
         <div id='mealDetails'>
             <div id='imgDiv'>
@@ -60,9 +87,9 @@ export default function MealDetails(){
            
             <div id='detailsContainer'>
                 <div id='detailTabs'>
-                    <div className='tab' id='detailsTab'>Details Tab</div>
-                    <div className='tab' id='ingredientsTab'>Ingredients Tab</div>
-                    <div className='tab' id='instructionsTab'>Instructions Tab</div>
+                    <div className='tab' id='detailsTab' onClick={e=>setActivePage(prev => prev = e.target.id)}>Details Tab</div>
+                    <div className='tab' id='ingredientsTab' onClick={e=>setActivePage(prev => prev = e.target.id)}>Ingredients Tab</div>
+                    <div className='tab' id='instructionsTab' onClick={e=>setActivePage(prev => prev = e.target.id)}>Instructions Tab</div>
                 </div>
 
                 <div id ='pages'>

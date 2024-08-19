@@ -37,24 +37,27 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    background-color: aqua;
+    background-color: rgb(188, 242, 246);
     width: 33%;
-    transition: .2s ease;
+    opacity: 0%;
+    transition: .2s ease-in-out;
 }
 .tab:hover{
     color: rgb(103, 103, 103);
 }
 .page{
+    z-index: 1;
     display: flex;
+    opacity: 0%;
     flex-flow: column nowrap;
     align-items: center;
-    position: relative;
-    height: 77.45%;
+    position: absolute;
+    height: 85.5dvh;
     width: 100%;
-    border: solid black 1px;
     box-sizing: border-box;
     margin: 0%;
     background-color: white;
+    transition: all .3s  ease-in-out;
 }
 #MDIngredientsList{
     display: flex;
@@ -65,10 +68,10 @@
 
 }
 .ingredient{
+    position: relative;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
-    position: relative;
     width: 100%;
 }
 .ingredientDetails{
