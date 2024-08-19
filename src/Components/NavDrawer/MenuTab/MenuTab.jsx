@@ -5,6 +5,7 @@ import './MenuTab.css'
 export default function MenuTab(){
     const foods = [
         {
+            id:1,
             Name: "Jollof",
             PrepTime: 50,
             CookTime: 10,
@@ -13,6 +14,7 @@ export default function MenuTab(){
             Description: "A Staple of Ghana and Nigeria; this recipe is passed down from my grandmother and is made in the traditional Ghanian fashion."
         },
         {
+            id:2,
             Name: "Rice & Beans",
             PrepTime: 50,
             CookTime: 30,
@@ -21,6 +23,7 @@ export default function MenuTab(){
             Description: "A Staple of PuertoRican households, theres nothing more relaxing than sharing a plate with loved ones. goes great with some chuleta"
         },
         {
+            id:3,
             Name: "Bacon, Egg and Cheese",
             PrepTime: 5,
             CookTime: 10,
