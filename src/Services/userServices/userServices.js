@@ -3,8 +3,11 @@ import api from './userApi.js'
 export const getAllUsers = async () => {
     return await api.get('/')
 }
-export const getUser = async (id) => {
-    return await api.get(`/${id}`)
+export const getUser = async (userName) => {
+    return await api.get(`/${userName}`)
+}
+export const userLogin = async (body) => {
+    return await api.post('/login', body)
 }
 export const newUser = async (body) => {
     return await api.post('/new', body)
