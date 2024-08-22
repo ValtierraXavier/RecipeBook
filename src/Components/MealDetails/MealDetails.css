@@ -40,7 +40,7 @@
     background-color: rgb(188, 242, 246);
     width: 33%;
     opacity: 0%;
-    transition: .2s ease-in-out;
+    transition: .1s ease-in;
 }
 .tab:hover{
     color: rgb(103, 103, 103);
@@ -57,7 +57,7 @@
     box-sizing: border-box;
     margin: 0%;
     background-color: white;
-    transition: all .3s  ease-in-out;
+    transition: all .1s ease-in;
 }
 #MDIngredientsList{
     display: flex;

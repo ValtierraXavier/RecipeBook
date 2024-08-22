@@ -32,6 +32,9 @@ export default function MenuTab(){
             Description: "Classic American Breakfast Sandwich...delicious"
         }
     ]
+
+
+    
     const {menuOpen} = useContext(MenuContext)
     const menuSlider = document.getElementById('menuList')
 
@@ -46,21 +49,22 @@ export default function MenuTab(){
             {foods?.map((el, i)=>{
                 let time = el.CookTime + el.PrepTime,hours = Math.floor(time/60), mins = time % 60, formattedTime = time > 60? `${hours}h ${mins}m` : `${mins === 0 ? `${hours}h` : `${mins}m`}`
                 return (
-                <div className='mealCard' id={`meal${i}`}>
+                <div className='mealCard' id={`meal${i}`} key={`mC${i}`}>
                     <input type='checkbox' className='FavoriteButton' id='favoriteCheck'></input>
                     <label id='favoriteButton' htmlFor='favoriteCheck'>Fave</label>
-                    <h4 className='mealItems' id={`mealName${i}`}>{`${el.Name}`}</h4>
-                    <div className='mealItems' id={`mealPrepTime${i}`}>{`Prep: ${el.PrepTime}mins`}</div>
-                    <div className='mealItems' id={`mealCookTime${i}`}>{`Cook: ${el.CookTime}mins`}</div>
-                    <div className='mealItems' id={`totalCookTime${i}`}><strong>{`Total:${formattedTime}`}</strong></div>
-                    <div className='mealItems ingredientsList' id={`ingredientsList${i}`}>Ingredients:
-                    {
-                        el.Ingredients?.map((el, i)=>{
-                            return(
-                                <p className='ingredient' id={`ingredient${i}`}>{`${i + 1}-${el}`}</p>
-                            )
-                        })
-                    }
+                    <h4  key={`mN${i}`} className='mealItems' id={`mealName${i}`}>{`${el.Name}`}</h4>
+                    <div key={`mPT${i}`}  className='mealItems' id={`mealPrepTime${i}`}>{`Prep: ${el.PrepTime}mins`}</div>
+                    <div key={`mCT${i}`}  className='mealItems' id={`mealCookTime${i}`}>{`Cook: ${el.CookTime}mins`}</div>
+                    <div key={`tCT${i}`}  className='mealItems' id={`totalCookTime${i}`}><strong>{`Total:${formattedTime}`}</strong></div>
+                    <div key={`iL${i}`}  className='mealItems ingredientsList' id={`ingredientsList${i}`}>
+                        Ingredients:
+                        {
+                            el.Ingredients?.map((el, i)=>{
+                                return(
+                                    <p key={`i${i}`} className='ingredient' id={`ingredient${i}`}>{`${i + 1}-${el}`}</p>
+                                )
+                            })
+                        }
                     </div>
                 </div>
                )

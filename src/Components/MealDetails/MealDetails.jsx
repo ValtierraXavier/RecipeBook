@@ -58,10 +58,11 @@ export default function MealDetails(){
             (resolve)=> setTimeout(resolve ,ms) 
         )
     }
+    const tabs = document.getElementsByClassName('tab')
+    const pages = document.getElementsByClassName('page')
+    const tabPageRel = {} 
+
     const pageSelect = async (id) => {
-        const tabs = document.getElementsByClassName('tab')
-        const pages = document.getElementsByClassName('page')
-        const tabPageRel = {}
         for(let i = 0; i < tabs.length; i++){
             tabPageRel[tabs[i].id] = pages[i].id 
         }
@@ -78,7 +79,7 @@ export default function MealDetails(){
     }
     useEffect(()=>{
         pageSelect(activePage)
-    },[activePage])
+    })
     return(
         <div id='mealDetails'>
             <div id='imgDiv'>
@@ -126,8 +127,7 @@ export default function MealDetails(){
                         </div>
                     </div>
                 </div>
-            </div>
-            
+            </div>   
         </div>
     )
 }

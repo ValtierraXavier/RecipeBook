@@ -1,9 +1,10 @@
 import './App.css';
-import Outlet from 'react-router-dom'
+// import Outlet from 'react-router-dom'
 import React, {useState} from 'react';
 import Drawer from './Components/NavDrawer/Drawer/Drawer.jsx'
 import MealDetails from './Components/MealDetails/MealDetails.jsx';
 import { SliderContext, MenuContext } from './Context/Contexts.js';
+import { getAllIngredients } from './Services/ingredientServices/ingredientsServices.js'
 
 function App() {
   //state for nav menu. (boolean)
@@ -21,10 +22,14 @@ function App() {
       setMenuOpen(prev => prev = false)
     }
   })
-
-  
+  const printAllIngredients = async () => {
+    await getAllIngredients()
+    .then(response => {console.log(response)})
+    .catch(error => {return error})
+  }  
   return (
     <div className="App">
+      <button onClick={printAllIngredients}>Print Ingredients</button>
       <SliderContext.Provider value={{open, setOpen}}>
         <MenuContext.Provider value = {{menuOpen, setMenuOpen}}>
           <Drawer/>
