@@ -5,6 +5,8 @@ import Drawer from './Components/NavDrawer/Drawer/Drawer.jsx'
 import MealDetails from './Components/MealDetails/MealDetails.jsx';
 import { SliderContext, MenuContext } from './Context/Contexts.js';
 import { getAllIngredients } from './Services/ingredientServices/ingredientsServices.js'
+import { getAllUsers } from './Services/userServices/userServices.js';
+import { getAllRecipes } from './Services/recipeServices/recipeServices.js';
 
 function App() {
   //state for nav menu. (boolean)
@@ -25,11 +27,24 @@ function App() {
   const printAllIngredients = async () => {
     await getAllIngredients()
     .then(response => {console.log(response)})
-    .catch(error => {return error})
+    .catch(error => {console.log(error)})
   }  
+  const printAllUsers = async () => {
+    await getAllUsers()
+    .then(response => {console.log(response)})
+    .catch(error => {console.log(error)})
+  }
+  const printAllRecipes = async () => {
+    await getAllRecipes()
+    .then(response => {console.log(response)})
+    .catch(error => console.log(error))
+  }
+
   return (
     <div className="App">
       <button onClick={printAllIngredients}>Print Ingredients</button>
+      <button onClick={printAllRecipes}>Print Recipes</button>
+      <button onClick={printAllUsers}>Print Users</button>
       <SliderContext.Provider value={{open, setOpen}}>
         <MenuContext.Provider value = {{menuOpen, setMenuOpen}}>
           <Drawer/>

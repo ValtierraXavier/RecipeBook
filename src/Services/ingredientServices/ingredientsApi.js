@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseURL = 'http://localhost:3005/recipes'
+const baseURL = 'http://localhost:3005/ingredients'
 
 let ingredientsApi = axios.create({
     baseURL,
