@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import './SignUp.css'
-import * as Users from '../../../Services/userServices/userServices.js'
+import * as User from '../../../Services/userServices/userServices.js'
 import { SignupFormContext } from "../../../Context/Contexts.js";
 
 export default function SignUp (){
@@ -16,8 +16,11 @@ export default function SignUp (){
         setSignupForm(prev => prev = formValues)
     }
 
-    const handleSubmit = () => {
-        console.log(signupForm)
+    const handleSubmit = async () => {
+        await User.newUser(signupForm)
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err.message))
+
     }
     return(
         <form className='authForm' id='signUpPage'>
@@ -30,7 +33,7 @@ export default function SignUp (){
             <input type='text' className = "authInput" id='signupPassword' name='password' onChange={handleChange} value={signupForm?.password}/> 
             <label  htmlFor="signupConfirmPW">Confirm Password</label>
             <input type='text' className = "authInput" id='signupConfirmPW' name='confirmPW' onChange={handleChange} value={signupForm?.confirmPW}/> 
-            <input type='button' onClick={handleSubmit} />
+            <input type='button' onClick={handleSubmit} value='Sign Up!' />
         </form>
     )
 }

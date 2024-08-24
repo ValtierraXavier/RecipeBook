@@ -57,9 +57,9 @@ function App() {
 
   return (
     <div className="App">
-      {/* <LoginFormContext.Provider value={{loginForm, setLoginForm}}>
+      <LoginFormContext.Provider value={{loginForm, setLoginForm}}>
         <LoginPage/>
-      </LoginFormContext.Provider> */}
+      </LoginFormContext.Provider>
       <SignupFormContext.Provider value={{signupForm, setSignupForm}}>
         <SignUp/>
       </SignupFormContext.Provider>
