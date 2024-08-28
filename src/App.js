@@ -9,6 +9,7 @@ import { getAllUsers } from './Services/userServices/userServices.js';
 import { getAllRecipes } from './Services/recipeServices/recipeServices.js';
 import LoginPage from './Components/Authentication/LoginPage/Login.jsx';
 import SignUp from './Components/Authentication/SignUpPage/SignUp.jsx';
+import { Outlet } from 'react-router-dom';
 
 
 function App() {
@@ -57,12 +58,18 @@ function App() {
 
   return (
     <div className="App">
-      <LoginFormContext.Provider value={{loginForm, setLoginForm}}>
+       <SliderContext.Provider value={{open, setOpen}}>
+        <MenuContext.Provider value = {{menuOpen, setMenuOpen}}>
+          <Drawer/>
+        </MenuContext.Provider>
+      </SliderContext.Provider>
+      <Outlet/>
+      {/* <LoginFormContext.Provider value={{loginForm, setLoginForm}}>
         <LoginPage/>
       </LoginFormContext.Provider>
       <SignupFormContext.Provider value={{signupForm, setSignupForm}}>
         <SignUp/>
-      </SignupFormContext.Provider>
+      </SignupFormContext.Provider> */}
       {/* <button onClick={printAllIngredients}>Print Ingredients</button>
       <button onClick={printAllRecipes}>Print Recipes</button>
       <button onClick={printAllUsers}>Print Users</button>

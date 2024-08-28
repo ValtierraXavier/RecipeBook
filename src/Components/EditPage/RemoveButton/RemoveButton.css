@@ -1,0 +1,19 @@
+.removeButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 90%;
+    color: white;
+    background-color: coral;
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: 5px;
+}
+.removeButton > div{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: 95%;
+    width: 100%;
+}

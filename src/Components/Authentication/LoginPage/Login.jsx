@@ -24,9 +24,9 @@ export default function LoginPage (){
     return(
         <form className='authForm' id='loginForm'>
             <p>Log In</p>
-            <label htmlFor='loginUserName'>Username</label>
+            <label className='feildLabel' htmlFor='loginUserName'>Username</label>
             <input className='authInput' id='loginUsername' name='userName' type='text' value={loginForm.userName} onChange={handleChange}></input>
-            <label htmlFor='loginPassword'>Password</label>
+            <label className='feildLabel' htmlFor='loginPassword'>Password</label>
             <input className='authInput' id='loginPassword' name='password' type='text' value={loginForm.password} onChange={handleChange}></input>
             <input className='authInput' type='button' value='Login!' onClick={handleSubmit}></input>
         </form>

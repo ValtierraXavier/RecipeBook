@@ -14,3 +14,6 @@ export const SignupFormContext = createContext({
     password: '',
     confirmPW: ''
 })
+   let measureUnits = 'lb g oz ml cup L pint'
+   measureUnits = measureUnits.split(' ')
+export const measurmentContext = createContext(measureUnits)
